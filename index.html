@@ -258,7 +258,7 @@
                         <span class="text-norton-black font-bold text-2xl">N</span>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold text-norton-black tracking-tight">Norsec</h1>
+                        <h1 class="text-3xl font-bold text-norton-black tracking-tight">norsec</h1>
                         <div class="inline-flex items-center mt-2">
                             <span class="gold-gradient text-norton-black text-sm font-bold px-4 py-1.5 rounded-full shadow-md pulse-animation">
                                 ✓ Authorized Norton Reseller
@@ -271,6 +271,10 @@
                 <nav class="flex space-x-8">
                     <a href="#products" class="text-gray-700 hover:text-norton-black font-semibold text-lg relative group">
                         Products
+                        <span class="absolute -bottom-1 left-0 w-0 h-1 bg-norton-gold group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#checkout" class="text-gray-700 hover:text-norton-black font-semibold text-lg relative group">
+                        Checkout
                         <span class="absolute -bottom-1 left-0 w-0 h-1 bg-norton-gold group-hover:w-full transition-all duration-300"></span>
                     </a>
                     <a href="#features" class="text-gray-700 hover:text-norton-black font-semibold text-lg relative group">
@@ -531,6 +535,144 @@
             </div>
         </section>
         
+        <!-- Checkout Section -->
+        <section id="checkout" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-norton-black mb-4">Complete Your Purchase</h2>
+                        <p class="text-gray-600">Fill out the form below to get your Norton license key delivered instantly via email.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Order Summary -->
+                        <div class="bg-gray-50 rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-norton-black mb-6">Order Summary</h3>
+                            <div class="space-y-6">
+                                <!-- Product Selection -->
+                                <div>
+                                    <h4 class="font-semibold text-gray-700 mb-3">Select Product</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+                                            <div>
+                                                <div class="font-medium">Norton Antivirus Plus</div>
+                                                <div class="text-sm text-gray-500">1 Device • $39.99/year</div>
+                                            </div>
+                                            <input type="radio" name="product" value="norton_plus" checked class="w-5 h-5 text-norton-gold">
+                                        </div>
+                                        <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+                                            <div>
+                                                <div class="font-medium">Norton 360 Deluxe</div>
+                                                <div class="text-sm text-gray-500">5 Devices • $89.99/year</div>
+                                                <span class="inline-block mt-1 bg-norton-gold text-norton-black text-xs font-bold px-2 py-1 rounded">Best Seller</span>
+                                            </div>
+                                            <input type="radio" name="product" value="norton_deluxe" class="w-5 h-5 text-norton-gold">
+                                        </div>
+                                        <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200">
+                                            <div>
+                                                <div class="font-medium">Norton 360 Premium</div>
+                                                <div class="text-sm text-gray-500">10 Devices • $119.99/year</div>
+                                            </div>
+                                            <input type="radio" name="product" value="norton_premium" class="w-5 h-5 text-norton-gold">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Price Summary -->
+                                <div class="pt-6 border-t border-gray-200">
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Subtotal</span>
+                                        <span class="font-medium" id="subtotal">$39.99</span>
+                                    </div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Tax</span>
+                                        <span class="font-medium">$0.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-xl font-bold mt-4 pt-4 border-t border-gray-300">
+                                        <span>Total</span>
+                                        <span id="total">$39.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Checkout Form -->
+                        <div>
+                            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" id="checkout-form">
+                                <input type="hidden" name="access_key" value="df92ccd8-4c03-4716-9af3-39e5b65cbbef">
+                                <input type="hidden" name="subject" value="New Norton Purchase">
+                                <input type="hidden" name="product" id="form_product" value="norton_plus">
+                                
+                                <!-- Honeypot spam protection -->
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-norton-gold focus:border-transparent">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-norton-gold focus:border-transparent">
+                                    <p class="text-sm text-gray-500 mt-1">Your license key will be sent to this email</p>
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-norton-gold focus:border-transparent">
+                                </div>
+                                
+                                <!-- Payment Method -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-3">Payment Method *</label>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                            <input type="radio" id="card" name="payment" value="credit_card" checked class="w-5 h-5 text-norton-gold mr-3">
+                                            <label for="card" class="flex-1">
+                                                <div class="font-medium">Credit/Debit Card</div>
+                                                <div class="text-sm text-gray-500">Pay securely with your card</div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                            <input type="radio" id="paypal" name="payment" value="paypal" class="w-5 h-5 text-norton-gold mr-3">
+                                            <label for="paypal" class="flex-1">
+                                                <div class="font-medium">PayPal</div>
+                                                <div class="text-sm text-gray-500">Pay with your PayPal account</div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                            <input type="radio" id="crypto" name="payment" value="crypto" class="w-5 h-5 text-norton-gold mr-3">
+                                            <label for="crypto" class="flex-1">
+                                                <div class="font-medium">Cryptocurrency</div>
+                                                <div class="text-sm text-gray-500">Pay with Bitcoin, Ethereum, etc.</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Terms Agreement -->
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="terms" name="terms" required class="w-5 h-5 text-norton-gold mt-1 mr-3">
+                                    <label for="terms" class="text-sm text-gray-600">
+                                        I agree to the <a href="terms-of-service.html" class="text-norton-gold hover:underline">Terms of Service</a> and <a href="privacy-policy.html" class="text-norton-gold hover:underline">Privacy Policy</a>. I understand that I will receive my license key via email within 24 hours.
+                                    </label>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <button type="submit" class="w-full gold-gradient text-norton-black font-bold py-4 px-6 rounded-2xl hover-lift text-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                                    Complete Purchase & Get License Key
+                                </button>
+                                
+                                <p class="text-center text-sm text-gray-500">
+                                    Your information is secure. We use SSL encryption and never store payment details.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Features Section -->
         <section id="features" class="py-16 bg-white">
             <div class="container mx-auto px-4">
@@ -730,7 +872,7 @@
                             </div>
                             <h3 class="text-xl font-bold text-norton-black mb-2">Sales Inquiries</h3>
                             <p class="text-gray-600 mb-4">For product selection and licensing questions</p>
-                            <a href="mailto:sales@nortonstore.example.com" class="text-norton-gold font-medium hover:underline">sales@nortonstore.example.com</a>
+                            <a href="mailto:sales@norsec.online" class="text-norton-gold font-medium hover:underline">sales@norsec.online</a>
                         </div>
                         <div class="bg-gray-50 rounded-2xl p-8 text-center">
                             <div class="w-12 h-12 bg-norton-gold rounded-full flex items-center justify-center mx-auto mb-4">
@@ -764,7 +906,7 @@
                             <span class="text-norton-black font-bold">N</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold">Norsec</h3>
+                            <h3 class="text-xl font-bold">norsec</h3>
                             <p class="text-gray-400 text-sm">Authorized Norton Reseller</p>
                         </div>
                     </div>
@@ -820,9 +962,9 @@
                         This site is not owned or operated by Gen Digital Inc.
                     </p>
                     <p class="text-gray-500 text-sm">
-                        © 2026 Norsec. All rights reserved. |
-                        <a href="#" class="text-gray-400 hover:text-white">Contact Us</a> |
-                        <a href="#" class="text-gray-400 hover:text-white">Support</a>
+                        © 2026 norsec. All rights reserved. |
+                        <a href="#contact" class="text-gray-400 hover:text-white">Contact Us</a> |
+                        <a href="mailto:sales@norsec.online" class="text-gray-400 hover:text-white">Sales Support</a>
                     </p>
                 </div>
             </div>
@@ -858,8 +1000,59 @@
                 });
             });
             
+            // Product selection and price update logic
+            const productPrices = {
+                'norton_plus': 39.99,
+                'norton_deluxe': 89.99,
+                'norton_premium': 119.99
+            };
+            
+            const productRadios = document.querySelectorAll('input[name="product"]');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            const formProductInput = document.getElementById('form_product');
+            
+            function updatePrice(selectedProduct) {
+                const price = productPrices[selectedProduct];
+                subtotalElement.textContent = `$${price.toFixed(2)}`;
+                totalElement.textContent = `$${price.toFixed(2)}`;
+                formProductInput.value = selectedProduct;
+            }
+            
+            // Initialize with default selected product
+            const defaultProduct = document.querySelector('input[name="product"]:checked').value;
+            updatePrice(defaultProduct);
+            
+            // Add event listeners to product radios
+            productRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        updatePrice(this.value);
+                    }
+                });
+            });
+            
+            // Form submission handling (optional success message)
+            const checkoutForm = document.getElementById('checkout-form');
+            if (checkoutForm) {
+                checkoutForm.addEventListener('submit', function(e) {
+                    // Optional: Add loading state
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Processing...';
+                    submitButton.disabled = true;
+                    
+                    // Form will be submitted to Web3Forms
+                    // Web3Forms will handle the rest
+                    setTimeout(() => {
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    }, 5000); // Reset after 5 seconds in case of error
+                });
+            }
+            
             // Console log for development
-            console.log('Norton Authorized Reseller Landing Page loaded successfully.');
+            console.log('norsec - Norton Authorized Reseller Landing Page loaded successfully.');
         });
     </script>
 </body>
